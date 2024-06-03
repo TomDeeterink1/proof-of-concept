@@ -4,11 +4,10 @@ import express from "express";
 // Importeer de zelfgemaakte functie fetchJson uit de ./helpers map
 import fetchJson from "./helpers/fetch-json.js";
 
-// // Stel het basis endpoint in
 const apiUrl = "https://dtnl-frontend-case.vercel.app/api/";
-const forecast = apiUrl + "get-forecast";
-const currentweather = apiUrl + "get-weather";
-const thingstodo = apiUrl + "get-things-to-do";
+const forecastUrl = apiUrl + "get-forecast";
+const currentWeatherUrl = apiUrl + "get-weather";
+const thingsToDoUrl = apiUrl + "get-things-to-do";
 
 
 // Maak een nieuwe express app aan
@@ -26,12 +25,24 @@ app.use(express.static("public"));
 // Zorg dat werken met request data makkelijker wordt
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', function (request, response) {
-    fetchJson(forecast).then((forecast) => {
-        response.render('index',{
-        })
-    })
-})
+
+app.get('/', async function (request, response) {
+  try {
+    const forecastData = await fetchJson(forecastUrl);
+    const currentWeatherData = await fetchJson(currentWeatherUrl);
+    const thingsToDoData = await fetchJson(thingsToDoUrl);
+
+    response.render('index', {
+      allcast: forecastData.forecast || [],
+      weather: currentWeatherData.weather || {},
+      thingsToDo: thingsToDoData.activities || []
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    response.status(500).send("Error fetching data.");
+  }
+});
+
 
 
 // Start express op, haal daarbij het zojuist ingestelde poortnummer op

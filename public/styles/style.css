@@ -1,0 +1,125 @@
+/* Custom lato font */
+@font-face {
+    font-family: LatoReg;
+    src: url(../fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: LatoBold;
+    src: url(../fonts/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: LatoThin;
+    src: url(../fonts/Lato-Light.ttf);
+}
+
+:root {
+    /* ===== Colors ===== */
+    --body-color: #fff;
+    --primary-color: #5115F7;
+    --dark: #000000;
+    --rose: #F0EBFE;
+    --gray-1: #9D9D9D;
+    --gray-2: #C4C4C4;
+    --gray-3: #D9D9D9;
+    --gray-4: #E9E9E9;
+    --gray-5: #F5F5F5;
+    
+
+    /* Spacing */
+    --none: 0px;
+    --extra-small: 4px;
+    --small: 8px;
+    --medium: 16px;
+    --large: 32px;
+    --extra-large: 64px;
+    --extra-extra-large: 128px;
+    --buttons: 8px 16px;
+
+    /* Borders */
+    --button: 4px;
+    --radius-small: 4px;
+    --radius-medium: 8px;
+    --radius-large: 12px;
+    --radius-extra-large: 16px;
+}
+
+h1 {
+    font-family: "LatoThin";
+    font-weight: 300;
+}
+body{
+    margin: 0 auto;
+
+}
+
+::marker{
+    content: "";
+}
+/* start of mobile code */
+
+/* start of header */
+
+header{
+   background-color: var(--primary-color);
+   padding: 32px;
+        & svg{
+            width: 100%;
+        }
+}
+
+/* start of page */
+.weather-container{
+    padding: 0px;
+    & .intro--block{
+        background-color: var(--primary-color);
+        color: var(--body-color);
+        padding: 0px 32px 32px 32px;
+        & h1{
+            font-size: 36px;
+            margin-top: 0px;
+        }
+        & details{
+            font-family: "LatoThin";
+            font-size: 1em;
+            & summary{
+                &::marker{
+                    content: "";
+                }
+            }
+        }
+        & .read--more{
+            color: var(--body-color);
+            margin-top: var(--medium);
+            padding: 0px;
+            background-color: var(--primary-color);
+            border: none;
+            font-family: "LatoThin";
+            font-size: 1em;
+            &:hover{
+                text-decoration: underline var(--gray-5);
+                text-underline-offset: 2px;
+                cursor: pointer;
+            }
+            &:active{
+                text-decoration: underline var(--gray-5);
+                text-underline-offset: 2px;
+            }
+        }
+    }
+    & .days--block{
+        padding: 0px 32px 32px 32px;
+        & ol{
+            padding-inline-start: 0px;
+        }
+        & .full--list{
+            & ol{
+                gap: 6px;
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
+}
+

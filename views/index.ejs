@@ -1,0 +1,43 @@
+<%- include('./partials/head') %>
+
+<section class="weather-container">
+   <div class="intro--block">
+      <h1>EPT® weather planner</h1>
+      <details class="main-detail">
+            <summary>
+               Picture this: an application that doesn't just tell you the weather, but also helps you plan your activities around it. 
+               Imagine knowing exactly the perfect day to plan that hike, or when to avoid the outdoor concert due to an unexpected shower. 
+               That's exactly what the Dept Weather Planner offers you.
+            </summary>
+            <p>Built with cutting-edge technologies, our weather planner brings you accurate, real-time weather data with a slick and user-friendly interface. 
+               But it's not just a weather app; it's an intuitive daily planner that syncs with the weather. 
+               With a range of activities to choose from, it suggests the best options based on current and forecasted weather conditions. </p>
+      </details>
+      <button class="read--more">Read more</button>
+   </div>
+   <div class="days--block">
+      <ol>
+         <% allcast.forEach(item => { %>
+               <div class="full--list">
+                  <p > <%= item.date %></p >
+                  <ol>
+                     <li> <%= item.condition.description %></li>
+                     <li> <%= item.minTemp %></li>
+                     <li> <%= item.maxTemp %></li>
+                     <li> <%= item.metric %></li>
+                     <li> <%= item.windDirection %></li>
+                     <li> <%= item.precipitation %></li>
+                  </ol>
+               </div>
+         <% }); %>
+      </ol>
+   </div>
+   <div>
+    
+   </div>
+   <div>
+    
+   </div>
+</section>
+
+<%- include('./partials/foot') %>
