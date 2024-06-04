@@ -44,16 +44,31 @@
     --radius-large: 12px;
     --radius-extra-large: 16px;
 }
+.bold{
+    font-weight: 400;
+    font-family: LatoBold ;
+    margin-top: 0px;
+}
 
 h1 {
     font-family: "LatoThin";
     font-weight: 300;
 }
+
+h2{
+    font-family: "LatoThin";
+    font-weight: 300;
+}
+
+h3{
+    font-family: "LatoBold";
+    font-weight: 500;
+}
+
 body{
     margin: 0 auto;
 
 }
-
 ::marker{
     content: "";
 }
@@ -63,7 +78,7 @@ body{
 
 header{
    background-color: var(--primary-color);
-   padding: 32px;
+   padding: 32px 16px 32px 16px;
         & svg{
             width: 100%;
         }
@@ -75,7 +90,7 @@ header{
     & .intro--block{
         background-color: var(--primary-color);
         color: var(--body-color);
-        padding: 0px 32px 32px 32px;
+        padding: 32px 16px 32px 16px;
         & h1{
             font-size: 36px;
             margin-top: 0px;
@@ -108,18 +123,88 @@ header{
             }
         }
     }
-    & .days--block{
-        padding: 0px 32px 32px 32px;
+    & .days-block{
+        padding: 32px 16px 32px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 1em;
         & ol{
             padding-inline-start: 0px;
+            font-family: "LatoThin";
+            font-size: 1em;
         }
         & .full--list{
+            border-bottom: 1px solid var(--gray-5);
+            & .mobile--view{
+                font-weight: 400;
+                font-family: LatoBold ;
+            }
             & ol{
-                gap: 6px;
+                & .desktop--view{
+                    display: none;
+                }
+                gap: 8px;
                 display: flex;
                 flex-direction: row;
+                align-items: center;
+                & div{
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                    & p{
+                        margin: 0px;
+                        padding: 0px 2px 0px 2px;
+                        font-weight: 400;
+                        font-family: LatoBold ;
+                    }
+                }
+            }
+        }
+
+        & .days-form{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            & h3{
+                font-size: 1.2em;
+            }
+            & .--form{
+                width: 100%;
+                gap: 1em;
+                display: flex;
+                flex-direction: column;
+                & input{
+                    border: 1px solid var(--dark);
+                    background-color: var(--body-color);
+                    color: var(--dark);
+                    padding: 16px 48px;
+                    font-size: 1em;
+                    border-radius: 100px;
+                    font-family: "LatoReg";
+                    text-align: center;
+                }
+                & button{
+                    padding: 16px 48px;
+                    font-family: "LatoReg";
+                    border: 1px solid var(--dark);
+                    background-color: var(--dark);
+                    color: var(--body-color);
+                    font-size: 1em;
+                    border-radius: 100px;
+                    &:hover{
+                        background-color: var(--primary-color);
+                        border: 1px solid var(--primary-color);
+                        color: var(--body-color);
+                        transition: ease-in 0.1s;
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }
 }
 
+@media screen {
+    
+}

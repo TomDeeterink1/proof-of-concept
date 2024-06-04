@@ -1,7 +1,7 @@
 <%- include('./partials/head') %>
 
 <section class="weather-container">
-   <div class="intro--block">
+   <section class="intro--block">
       <h1>EPT® weather planner</h1>
       <details class="main-detail">
             <summary>
@@ -14,30 +14,58 @@
                With a range of activities to choose from, it suggests the best options based on current and forecasted weather conditions. </p>
       </details>
       <button class="read--more">Read more</button>
-   </div>
-   <div class="days--block">
-      <ol>
-         <% allcast.forEach(item => { %>
+   </section>
+   <section class="days-block">
+      <% let count = 0;
+         allcast.forEach(item => { 
+         if (count < 5) { 
+         count++;  %>
                <div class="full--list">
-                  <p > <%= item.date %></p >
+                  <p class="mobile--view" > 
+                        monday 26 dec
+                  <p>
                   <ol>
-                     <li> <%= item.condition.description %></li>
-                     <li> <%= item.minTemp %></li>
-                     <li> <%= item.maxTemp %></li>
-                     <li> <%= item.metric %></li>
-                     <li> <%= item.windDirection %></li>
-                     <li> <%= item.precipitation %></li>
+                  <li class="desktop--view" > 
+                        monday 26 dec
+                  <li>
+                        <% if (item.condition.description == "Overcast" ) { %>
+                           <i class='bx bxs-cloud-rain' ></i>
+                         <% } else { %>
+                           <% if (item.condition.description == "Cloudy" ) { %>
+                              <i class='bx bxs-cloud'></i>
+                            <% } else { %>
+                              <i class='bx bxs-sun' ></i>
+                            <% } %>
+                         <% } %>
+                     </li>
+                  <% if (item.metric == "CELCIUS") { %>
+                     <div>
+                        <li> <%= item.minTemp %>°</li>
+                        <p>/</p>
+                        <li class="bold"> <%= item.maxTemp %>°</li>
+                     </div>
+                  <% } else { %>
+                     <div>
+                        <li> °<%= item.minTemp %></li>
+                        <p>/</p>
+                        <li class="bold"> °<%= item.maxTemp %></li>
+                     </div>
+                  <% } %>
+                     <li> <i class='bx bxs-droplet' style='color:#25c7ff'></i> <%= item.precipitation %></li>
+                     <li> <%= item.windDirection %> <i class='bx bx-wind'></i></li>
                   </ol>
                </div>
-         <% }); %>
-      </ol>
-   </div>
-   <div>
-    
-   </div>
-   <div>
-    
-   </div>
+         <% }}); %>
+      
+         <section class="days-form">
+            <h3>Want to get a daily forecast?</h3>
+            <form class="--form">
+               <input type="email" placeholder="Enter your e-mailaddress">
+               <button type="submit"> Submit </button>
+            </form>
+         </section>
+
+   </section>
 </section>
 
 <%- include('./partials/foot') %>
