@@ -68,4 +68,26 @@
    </section>
 </section>
 
+<section class="current-weather-widget">
+      <div class="widget--inner">
+         <h2><%= weather.temp %></h2>
+     
+         <% weatherinfo.forEach(info => { %>
+            <% if (info.minTemp > 31) { %>
+               
+               <h3><%= info.title %></h3>
+               <p><%= info.description %></p>
+            <% } else { %>
+
+
+               <p>No weather information available.</p>
+
+
+            <% } %>
+
+         <% }) %>
+
+   </div>
+</section>
+
 <%- include('./partials/foot') %>

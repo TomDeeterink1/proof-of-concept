@@ -204,7 +204,37 @@ header{
         }
     }
 }
-
-@media screen {
-    
+.current-weather-widget{
+    padding: 1em;
+    & .widget--inner{
+        padding: 2em;
+        background-color: var(--gray-3);
+        border-radius: 6px;
+        & h2{
+            font-family: "LatoBold";
+            font-weight: 500;
+            font-size: 90px;
+            margin: 0px;
+        }
+    }
 }
+
+@media screen and (min-width: 720px) and (max-width: 1000px) {
+        & .days-block{
+            & .full--list{
+                border-bottom: 1px solid var(--gray-5);
+                & .mobile--view{
+                    display: none;
+                }
+                & .desktop--view{
+                    display: block !important;
+                }
+            }
+    
+            & .days-form{
+                & .--form{
+                    align-items: flex-start;
+                }
+            }
+        }
+    }
