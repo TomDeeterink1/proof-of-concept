@@ -2,7 +2,7 @@
 
 <section class="weather-container">
    <section class="intro--block">
-      <h1>EPT® weather planner</h1>
+      <h1>DEPT® weather planner</h1>
       <details class="main-detail">
             <summary>
                Picture this: an application that doesn't just tell you the weather, but also helps you plan your activities around it. 
@@ -16,17 +16,18 @@
       <button class="read--more">Read more</button>
    </section>
    <section class="days-block">
+      <ol>
       <% let count = 0;
          allcast.forEach(item => { 
          if (count < 5) { 
          count++;  %>
-               <div class="full--list">
+               <li class="full--list">
                   <p class="mobile--view" > 
-                        monday 26 dec
+                     <%= item.dayOfWeek %>
                   <p>
                   <ol>
                   <li class="desktop--view" > 
-                        monday 26 dec
+                     <%= item.dayOfWeek %>
                   <li>
                         <% if (item.condition.description == "Overcast" ) { %>
                            <i class='bx bxs-cloud-rain' ></i>
@@ -54,8 +55,9 @@
                      <li> <i class='bx bxs-droplet' style='color:#25c7ff'></i> <%= item.precipitation %></li>
                      <li> <%= item.windDirection %> <i class='bx bx-wind'></i></li>
                   </ol>
-               </div>
+               </li>
          <% }}); %>
+      </ol>
       
          <section class="days-form">
             <h3>Want to get a daily forecast?</h3>

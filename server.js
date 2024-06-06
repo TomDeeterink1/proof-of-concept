@@ -25,25 +25,46 @@ app.use(express.static("public"));
 // Zorg dat werken met request data makkelijker wordt
 app.use(express.urlencoded({ extended: true }));
 
-
 app.get('/', async function (request, response) {
   try {
     const forecastData = await fetchJson(forecastUrl);
     const currentWeatherData = await fetchJson(currentWeatherUrl);
     const thingsToDoData = await fetchJson(thingsToDoUrl);
-    console.log(currentWeatherData.weatherInfo); 
-    response.render('index', {
-      allcast: forecastData.forecast || [],
+
+    // eerst controleer ik of er een array is in de data
+    if (Array.isArray(forecastData.forecast)) {
+      // Maak alle dagen van de week, zodat het model deze kan koppelen
+      const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+      // Voor elke cast maak een datuma aan (maakt gebruik van de api date .date), hierna maakt de code een UTC date aan, deze wordt hierna klaar gemaakt voor render.
+      forecastData.forecast.forEach(forecast => {
+        const date = new Date(forecast.date);
+        const dayIndex = date.getUTCDay();
+        forecast.dayOfWeek = daysOfWeek[dayIndex];
+      });
+
+      // Render alle data
+      response.render('index', { 
+        allcast: forecastData.forecast || [],
       weather: currentWeatherData.temperature || [],
       weatherinfo: currentWeatherData.weatherInfo || {},
       thingsToDo: thingsToDoData.activities || []
-    });
-
-    
+      });
+    } else {
+      console.error("error");
+      response.status(500).send('Error');
+    }
   } catch (error) {
     console.error("Error fetching data:", error);
-    response.status(500).send("Error fetching data.");
+    response.status(500).send('An error occurred while fetching data');
   }
+});
+
+
+
+app.post('/' , function(request, response){
+  
+ 
 });
 
 
