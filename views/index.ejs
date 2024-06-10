@@ -89,5 +89,15 @@
    </div>
 </section>
 
+<section class="activity-container">
+    <% thingsToDo.forEach(event => { %>
+        <% if ( weather.temp  >  event.maxTemp ) { %>
+                
+        <% } else { %>
+            <h2> <%= event.title %>  </h2>
+            <% } %>
+        <% }) %>
+</section>
+
 <%- include('./partials/foot') %>
 
