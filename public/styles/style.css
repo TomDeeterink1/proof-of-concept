@@ -209,13 +209,21 @@ header{
     padding: 1em;
     & .widget--inner{
         padding: 2em;
-        background-color: var(--gray-3);
+        background-color: var(--rose);
         border-radius: 6px;
         & h2{
             font-family: "LatoBold";
             font-weight: 500;
             font-size: 90px;
             margin: 0px;
+        }
+        & h3{
+
+        }
+        & p{
+            font-size: 1em;
+            border-radius: 100px;
+            font-family: "LatoReg";
         }
     }
 }
