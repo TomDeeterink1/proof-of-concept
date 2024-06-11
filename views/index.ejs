@@ -117,8 +117,14 @@
             <% thingsToDo.forEach(event => { %>
                <% if (weather.metric === "FAHRENHEIT") { %>
                   
-                  <% let converted = Math.floor(weather.temp / 2 / 1.8).toFixed(0); %>
-                  <% if ( converted.temp  >  event.maxTemp ) { %>
+                  <% let converted = Math.floor(weather.temp / 2 / 1.8).toFixed(0); 
+                  // math.floor betekend dat het voor een rond getal gaat, hierna komt de rekensom om fahrenheid te converten in celsius, daarna gebruik ik tofixed, om te zorgen dat het getal zonder comma is
+                  %>
+                  <% if ( 
+                     // || betekend OR (dus inplaats van en (&&) is het of )
+                     (converted >  event.maxTemp) || 
+                     (event.minTemp > converted)
+                  ) { %>
                      
                      <% } else { %>
                            <li>
@@ -137,11 +143,14 @@
                                  </div>
                               </article>
                            </li>
-                           <% } %>
+                           <% } %> 
 
                <% } else { %>
-                  <% if ( weather.temp  >  event.maxTemp ) { %>
-                     
+                  <% if (
+                     (weather.temp >  event.maxTemp) ||
+                     (event.minTemp > weather.temp)
+               ) { %>
+            
                      <% } else { %>
                            <li>
                               <article>
