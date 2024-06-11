@@ -78,6 +78,7 @@ h5{
 }
 body{
     margin: 0 auto;
+    width: 100%;
 
 }
 ::marker{
@@ -90,11 +91,16 @@ body{
 header{
    background-color: var(--primary-color);
    padding: 32px 16px 32px 16px;
+   max-width: 1408px;
+   margin: 0 auto;
         & svg{
             width: 100%;
         }
 }
-
+main{
+    max-width: 1440px;
+    margin: 0 auto;
+}
 /* start of page */
 .weather-container{
     padding: 0px;
@@ -249,6 +255,9 @@ header{
             & li{
                 border-bottom: 1px solid var(--gray-3);
                 margin-bottom: 2px;
+                & .desktop-image{
+                    display: none;
+                }
                 & img{
                     object-fit: cover;
                 }
@@ -285,7 +294,7 @@ footer{
         }
     }
 }
-@media screen and (min-width: 720px) and (max-width: 1000px) {
+@media screen and (min-width: 720px) and (max-width: 1100px) {
         & .days-block{
             & .full--list{
                 border-bottom: 1px solid var(--gray-5);
@@ -303,4 +312,127 @@ footer{
                 }
             }
         }
+        .activity-block{
+            padding: 1em;
+            & .container{
+                & ul{
+                    padding-inline-start: 0px;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    grid-column-gap: 16px;
+                    grid-row-gap: 16px;
+                     & .desktop-image{
+                        display: none;
+                    }
+                }
+        
+            }
+        }
     }
+
+    @media screen and (min-width: 1100px){
+        p{
+            font-size: 1.2em;
+        }
+
+       .full-wrapper{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 12px;
+            & .desktop-left , .desktop-right{
+                width: 50%;
+            }
+            & .desktop-left{
+                & .weather-container{
+                    & .intro--block{
+                        padding-left: 62px;
+                        padding-right: 2em;
+                        padding-bottom: 150px;
+                        & h1 {
+                            font-size: 72px;
+                            margin-top: 0px;
+                            font-weight: 500;
+                            font-family: "LatoReg";
+                        }
+                        & summary{
+                            font-size: 1.2em;
+                        }
+                    }
+                    & .days-block{
+                        padding-left: 62px;
+                        padding-right: 2em;
+                        background-color: var(--gray-5);
+                        padding-bottom: 74px;
+                        gap: 180px;
+                        & .full--list{
+                            border-bottom: 1px solid var(--gray-4);
+                            width: 508px;
+                            & ol{
+                                display: grid;
+                                grid-template-columns: 1fr repeat(4, 0.3fr);
+                                grid-template-rows: 1fr;
+
+                                grid-row-gap: 0px;
+                            }
+                            & .mobile--view{
+                                display: none;
+                            }
+                            & .desktop--view{
+                                display: block ;
+                                font-weight: 500;
+                                font-family: "LatoBold";
+                            }
+                        }
+                        
+                        & .days-form{
+                            border-top: 1px solid var(--gray-4);
+                            & .--form{
+                                align-items: flex-start;
+                            }
+                        }
+                    }
+                }
+            }
+            & .desktop-right{
+                padding-top: 1em;
+                margin-top: -90px;
+                background-color: var(--body-color);
+                & .current-weather-block{
+                    padding-left: 3.8em;
+                padding-right: 3.8em;
+                    & .block--inner{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                    & .current-detail{
+                        max-width: 351px;
+                    }
+                }
+                & .activity-block{
+                    padding-left: 3.8em;
+                padding-right: 3.8em;
+                    & .container{
+                        & .activity-do{
+                             & li{
+                                & article {
+                                    display: flex;
+                                    gap: 1em;
+                                    & .desktop-image{
+                                        display: block;
+                                    }
+                                    & .mobile-image{
+                                        display: none;
+                                    }
+                                }
+                             }
+                        }
+                    }
+                }
+            }
+       }
+    }
+

@@ -1,115 +1,171 @@
 <%- include('./partials/head') %>
 
-<section class="weather-container">
-   <section class="intro--block">
-      <h1>DEPT® weather planner</h1>
-      <details class="main-detail">
-            <summary>
-               Picture this: an application that doesn't just tell you the weather, but also helps you plan your activities around it. 
-               Imagine knowing exactly the perfect day to plan that hike, or when to avoid the outdoor concert due to an unexpected shower. 
-               That's exactly what the Dept Weather Planner offers you.
-            </summary>
-            <p>Built with cutting-edge technologies, our weather planner brings you accurate, real-time weather data with a slick and user-friendly interface. 
-               But it's not just a weather app; it's an intuitive daily planner that syncs with the weather. 
-               With a range of activities to choose from, it suggests the best options based on current and forecasted weather conditions. </p>
-      </details>
-      <button class="read--more">Read more</button>
-   </section>
-   <section class="days-block">
-      <ol>
-      <% let count = 0;
-         allcast.forEach(item => { 
-         if (count < 5) { 
-         count++;  %>
-               <li class="full--list">
-                  <p class="mobile--view" > 
-                     <%= item.dayOfWeek %>
-                  <p>
-                  <ol>
-                  <li class="desktop--view" > 
-                     <%= item.dayOfWeek %>
-                  <li>
-                        <% if (item.condition.description == "Overcast" ) { %>
-                           <i class='bx bxs-cloud-rain' ></i>
-                         <% } else { %>
-                           <% if (item.condition.description == "Cloudy" ) { %>
-                              <i class='bx bxs-cloud'></i>
-                            <% } else { %>
-                              <i class='bx bxs-sun' ></i>
-                            <% } %>
-                         <% } %>
+<div class="full-wrapper"> 
+   <div class="desktop-left">
+      <section class="weather-container">
+         <section class="intro--block">
+            <h1>DEPT® weather planner</h1>
+            <details class="main-detail">
+                  <summary>
+                     Picture this: an application that doesn't just tell you the weather, but also helps you plan your activities around it. 
+                     Imagine knowing exactly the perfect day to plan that hike, or when to avoid the outdoor concert due to an unexpected shower. 
+                     That's exactly what the Dept Weather Planner offers you.
+                  </summary>
+                  <p>Built with cutting-edge technologies, our weather planner brings you accurate, real-time weather data with a slick and user-friendly interface. 
+                     But it's not just a weather app; it's an intuitive daily planner that syncs with the weather. 
+                     With a range of activities to choose from, it suggests the best options based on current and forecasted weather conditions. </p>
+            </details>
+            <button class="read--more">Read more</button>
+         </section>
+         <section class="days-block">
+            <ol>
+            <% let count = 0;
+               allcast.forEach(item => { 
+               if (count < 5) { 
+               count++;  %>
+                     <li class="full--list">
+                        <p class="mobile--view" > 
+                           <%= item.dayOfWeek %>
+                        <p>
+                        <ol>
+                        <li class="desktop--view" > 
+                           <%= item.dayOfWeek %>
+                        <li>
+                              <% if (item.condition.description == "Overcast" ) { %>
+                                 <i class='bx bxs-cloud-rain' ></i>
+                              <% } else { %>
+                                 <% if (item.condition.description == "Cloudy" ) { %>
+                                    <i class='bx bxs-cloud'></i>
+                                 <% } else { %>
+                                    <i class='bx bxs-sun' ></i>
+                                 <% } %>
+                              <% } %>
+                           </li>
+                        <% if (item.metric == "CELCIUS") { %>
+                           <div>
+                              <li> <%= item.minTemp %>°</li>
+                              <p>/</p>
+                              <li class="bold"> <%= item.maxTemp %>°</li>
+                           </div>
+                        <% } else { %>
+                           <div>
+                              <li> °<%= item.minTemp %></li>
+                              <p>/</p>
+                              <li class="bold"> °<%= item.maxTemp %></li>
+                           </div>
+                        <% } %>
+                           <li> <i class='bx bxs-droplet' style='color:#25c7ff'></i> <%= item.precipitation %></li>
+                           <li> <%= item.windDirection %> <i class='bx bx-wind'></i></li>
+                        </ol>
                      </li>
-                  <% if (item.metric == "CELCIUS") { %>
-                     <div>
-                        <li> <%= item.minTemp %>°</li>
-                        <p>/</p>
-                        <li class="bold"> <%= item.maxTemp %>°</li>
-                     </div>
-                  <% } else { %>
-                     <div>
-                        <li> °<%= item.minTemp %></li>
-                        <p>/</p>
-                        <li class="bold"> °<%= item.maxTemp %></li>
+               <% }}); %>
+            </ol>
+            
+               <section class="days-form">
+                  <h3>Want to get a daily forecast?</h3>
+                  <form class="--form">
+                     <input type="email" placeholder="Enter your e-mailaddress">
+                     <button type="submit"> Submit </button>
+                  </form>
+               </section>
+      
+         </section>
+      </section>
+   </div>
+   <div class="desktop-right">
+      <section class="current-weather-block">
+            <div class="block--inner">
+               <% if (weather.metric === "FAHRENHEIT") { %>
+                  <% let converted = Math.floor(weather.temp / 2 / 1.8).toFixed(0); %>
+                  <h2><%= converted %> °</h2>
+                  <% weatherinfo.forEach(info => { %>
+                  <% if (
+                     // === (strikte gelijkheid): Controleert of beide operators gelijk zijn
+                     (info.minTemp === null || converted >= info.minTemp) &&
+                     // && De expressie is waar als beide operators waar zijn
+                     (info.maxTemp === null || converted < info.maxTemp)
+                  ) { %>
+                     <div class="current-detail">
+                        <h3><%= info.title.replace('{{ CELCIUS }}', converted) %></h3>
+                        <p><%= info.description %></p>   
                      </div>
                   <% } %>
-                     <li> <i class='bx bxs-droplet' style='color:#25c7ff'></i> <%= item.precipitation %></li>
-                     <li> <%= item.windDirection %> <i class='bx bx-wind'></i></li>
-                  </ol>
-               </li>
-         <% }}); %>
-      </ol>
-      
-         <section class="days-form">
-            <h3>Want to get a daily forecast?</h3>
-            <form class="--form">
-               <input type="email" placeholder="Enter your e-mailaddress">
-               <button type="submit"> Submit </button>
-            </form>
-         </section>
+            <% }) %>
+                  
+               <% } else { %>
+                  <h2><%= weather.temp %> °</h2>
+                  <% weatherinfo.forEach(info => { %>
+                  <% if (
+                     // === (strikte gelijkheid): Controleert of beide operators gelijk zijn
+                     (info.minTemp === null || weather.temp >= info.minTemp) &&
+                     // && De expressie is waar als beide operators waar zijn
+                     (info.maxTemp === null || weather.temp < info.maxTemp)
+                  ) { %>
+                     <div class="current-detail">
+                        <h3><%= info.title.replace('{{ CELCIUS }}', weather.temp) %></h3>
+                        <p><%= info.description %></p>   
+                     </div>
+                  <% } %>
+            <% }) %>
+               <% } %>
+         </div>
+      </section>
+      <section class="activity-block">
+         <div class="container">
+            <h4> Some things you could do:</h4>
+            <ul class="activity-do">
+            <% thingsToDo.forEach(event => { %>
+               <% if (weather.metric === "FAHRENHEIT") { %>
+                  
+                  <% let converted = Math.floor(weather.temp / 2 / 1.8).toFixed(0); %>
+                  <% if ( converted.temp  >  event.maxTemp ) { %>
+                     
+                     <% } else { %>
+                           <li>
+                              <article>
+                                 <picture class="desktop-image">
+                                    <source srcset="<%= event.mainImageUrl %>?&format=webp" type="image/webp">
+                                    <img loading="lazy" src="<%= event.mainImageUrl %>" alt="" width="109px" height="109px">
+                                 </picture>
+                                 <picture class="mobile-image">
+                                    <source srcset="<%= event.mainImageUrl %>?&format=webp" type="image/webp">
+                                    <img loading="lazy" src="<%= event.mainImageUrl %>" alt="" width="100%" height="130px">
+                                 </picture>
+                                 <div>
+                                    <h5> <%= event.title %>  </h5>
+                                    <p> <%= event.shortDescription %> </p>
+                                 </div>
+                              </article>
+                           </li>
+                           <% } %>
 
-   </section>
-</section>
-
-<section class="current-weather-block">
-      <div class="block--inner">
-         <h2><%= weather.temp %>  °</h2>
-        
-         <% weatherinfo.forEach(info => { %>
-            <% if (
-                // === (strikte gelijkheid): Controleert of beide operators gelijk zijn
-                (info.minTemp === null || weather.temp >= info.minTemp) &&
-                // && De expressie is waar als beide operators waar zijn
-                (info.maxTemp === null || weather.temp < info.maxTemp)
-            ) { %>
-                <h3><%= info.title.replace('{{ CELCIUS }}', weather.temp) %></h3>
-                <p><%= info.description %></p>
-            <% } %>
-        <% }) %>
-
+               <% } else { %>
+                  <% if ( weather.temp  >  event.maxTemp ) { %>
+                     
+                     <% } else { %>
+                           <li>
+                              <article>
+                                 <picture class="desktop-image">
+                                    <source srcset="<%= event.mainImageUrl %>?&format=webp" type="image/webp">
+                                    <img loading="lazy" src="<%= event.mainImageUrl %>" alt="" width="109px" height="109px">
+                                 </picture>
+                                 <picture class="mobile-image">
+                                    <source srcset="<%= event.mainImageUrl %>?&format=webp" type="image/webp">
+                                    <img loading="lazy" src="<%= event.mainImageUrl %>" alt="" width="100%" height="130px">
+                                 </picture>
+                                 <div>
+                                    <h5> <%= event.title %>  </h5>
+                                    <p> <%= event.shortDescription %> </p>
+                                 </div>
+                              </article>
+                           </li>
+                           <% } %>
+               <% } %>
+            <% }) %>
+         </ul>
+         </div>
+      </section>
    </div>
-</section>
-
-<section class="activity-block">
-   <div class="container">
-      <h4> Some things you could do:</h4>
-      <ul class="activity-do">
-      <% thingsToDo.forEach(event => { %>
-        <% if ( weather.temp  >  event.maxTemp ) { %>
-                
-        <% } else { %>
-            <li>
-               <picture>
-                  <source srcset="<%= event.mainImageUrl %>?&format=webp" type="image/webp">
-                  <img loading="lazy" src="<%= event.mainImageUrl %>" alt="" width="100%" height="130px">
-               </picture>
-               <h5> <%= event.title %>  </h5>
-               <p> <%= event.shortDescription %> </p>
-            </li>
-            <% } %>
-        <% }) %>
-   </ul>
-   </div>
-</section>
-
+</div>
 <%- include('./partials/foot') %>
 
