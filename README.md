@@ -19,7 +19,7 @@ Voor [DEPT](https://www.deptagency.com/nl-nl/) heb ik een weather planner gebouw
 [Link naar live](https://proof-of-concept-uj70.onrender.com)
 
 ## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+Als gebruiker wil ik een weerplanner-app die me niet alleen de weersvoorspellingen laat zien, maar me ook aanbevelingen geeft voor de beste dagen om mijn buitenactiviteiten te plannen. Hierdoor kan ik mijn vrije tijd beter indelen en voorkomen dat mijn plannen in het water vallen door slecht weer.
 
 ## Kenmerken
 1. EJS Templating
