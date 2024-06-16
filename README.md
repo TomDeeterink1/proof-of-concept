@@ -22,16 +22,28 @@ Voor [DEPT](https://www.deptagency.com/nl-nl/) heb ik een weather planner gebouw
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+1. EJS Templating
+2. CSS Nesting
+3. Express Server
+4. Custom Fonts
+
 
 ## Installatie
 1. Installeer de repository op local machine
    
    [Clonen met github desktop](https://docs.github.com/en/desktop)  [Clonen met git](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
-3. Instaleer benodigde NPM packages om project te runnen met `npm -install`
+2. Instaleer benodigde NPM packages om project te runnen met `npm -install`
+3. Start de server met `Local host 8001`
+4. Controleer of site werkt
 
 ## Bronnen
+[Clonen met github desktop](https://docs.github.com/en/desktop)
+[Clonen met git](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+[Ejs docs](https://ejs.co/)
+[CSS docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting)
+[Custom fonts docs](https://www.pagecloud.com/blog/how-to-add-custom-fonts-to-any-website)
 
 ## Licentie
 
