@@ -39,10 +39,15 @@ Voor [DEPT](https://www.deptagency.com/nl-nl/) heb ik een weather planner gebouw
 
 ## Bronnen
 [Clonen met github desktop](https://docs.github.com/en/desktop)
+
 [Clonen met git](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
 [Ejs docs](https://ejs.co/)
+
 [CSS docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
 [CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting)
+
 [Custom fonts docs](https://www.pagecloud.com/blog/how-to-add-custom-fonts-to-any-website)
 
 ## Licentie
