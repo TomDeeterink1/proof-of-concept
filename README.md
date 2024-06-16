@@ -25,7 +25,11 @@ Voor [DEPT](https://www.deptagency.com/nl-nl/) heb ik een weather planner gebouw
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
 
 ## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+1. Installeer de repository op local machine
+   
+   [Clonen met github desktop](https://docs.github.com/en/desktop)  [Clonen met git](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+3. Instaleer benodigde NPM packages om project te runnen met `npm -install`
 
 ## Bronnen
 
