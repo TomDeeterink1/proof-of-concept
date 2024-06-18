@@ -1,7 +1,6 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
 
-# Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+# DEPT Weather planner
+Het doel is dat we een website maken, die dient als weerplanner, de bedoeling is dat we node en ejs gebruiken gecombineerd met de API van DEPT® zodat we een dynamische webpagina hebben. Verder moet de pagina responsive zijn en mobile first gemaakt worden.
 
 ## Inhoudsopgave
 
@@ -13,20 +12,43 @@
   * [Licentie](#licentie)
 
 ## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+Voor [DEPT](https://www.deptagency.com/nl-nl/) heb ik een weather planner gebouwd waar gebruikers snel kunnen zien wat voor weer het is, en welke activiteiten hier bij passen.
+
+<img width="763" alt="Schermafbeelding 2024-06-16 om 14 02 15" src="https://github.com/TomDeeterink1/proof-of-concept/assets/144009665/601e324b-4c30-4d4c-8645-38944a8f80e6">
+
+[Link naar live](https://proof-of-concept-uj70.onrender.com)
 
 ## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+Als gebruiker wil ik een weerplanner-app die me niet alleen de weersvoorspellingen laat zien, maar me ook aanbevelingen geeft voor de beste dagen om mijn buitenactiviteiten te plannen. Hierdoor kan ik mijn vrije tijd beter indelen en voorkomen dat mijn plannen in het water vallen door slecht weer.
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+1. EJS Templating
+2. CSS Nesting
+3. Express Server
+4. Custom Fonts
+
 
 ## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+1. Installeer de repository op local machine
+   
+   [Clonen met github desktop](https://docs.github.com/en/desktop)  [Clonen met git](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+2. Instaleer benodigde NPM packages om project te runnen met `npm -install`
+3. Start de server met `Local host 8001`
+4. Controleer of site werkt
 
 ## Bronnen
+[Clonen met github desktop](https://docs.github.com/en/desktop)
+
+[Clonen met git](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+[Ejs docs](https://ejs.co/)
+
+[CSS docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+[CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting)
+
+[Custom fonts docs](https://www.pagecloud.com/blog/how-to-add-custom-fonts-to-any-website)
 
 ## Licentie
 
