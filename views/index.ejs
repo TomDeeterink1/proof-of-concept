@@ -128,7 +128,7 @@
                      
                      <% } else { %>
                            <li>
-                              <article>
+                              <article class="event-popup">
                                  <picture class="desktop-image">
                                     <source srcset="<%= event.mainImageUrl %>?&format=webp" type="image/webp">
                                     <img loading="lazy" src="<%= event.mainImageUrl %>" alt="" width="109px" height="109px">
@@ -153,7 +153,7 @@
             
                      <% } else { %>
                            <li>
-                              <article>
+                              <article class="event-popup">
                                  <picture class="desktop-image">
                                     <source srcset="<%= event.mainImageUrl %>?&format=webp" type="image/webp">
                                     <img loading="lazy" src="<%= event.mainImageUrl %>" alt="" width="109px" height="109px">
@@ -176,5 +176,9 @@
       </section>
    </div>
 </div>
+
+
+
+
 <%- include('./partials/foot') %>
 

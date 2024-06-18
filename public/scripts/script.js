@@ -1,5 +1,6 @@
 const readButtons = document.querySelector(".read--more");
 const details = document.querySelector(".main-detail");
+let poparticle = document.querySelectorAll(".event-popup");
 
 readButtons.addEventListener("click", clicked);
 
@@ -13,3 +14,16 @@ function clicked() {
       }
     
 }
+
+function makeclick (){
+  poparticle.forEach(element => {
+    element.addEventListener("click" , popup);
+  });
+}
+
+function popup(event) {
+  
+  console.log("hello world"); 
+}
+
+makeclick();

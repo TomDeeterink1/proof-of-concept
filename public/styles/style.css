@@ -277,6 +277,10 @@ main{
 
     }
 }
+
+.pop-up{
+    position: absolute;
+}
 footer{
     height: 50vh;
     width: 100%;
@@ -396,6 +400,8 @@ footer{
                 }
             }
             & .desktop-right{
+                margin-left: -1em;
+                padding-left: 1em;
                 padding-top: 1em;
                 margin-top: -90px;
                 background-color: var(--body-color);
@@ -418,9 +424,21 @@ footer{
                     & .container{
                         & .activity-do{
                              & li{
-                                & article {
+                                border: none;
+                                & .event-popup {
                                     display: flex;
                                     gap: 1em;
+                                align-items: center;
+                                border-bottom: 1px solid var(--gray-4);
+                                transition: ease-out 0.15s;
+                                transform: scale(100%);
+                                &:hover{
+                                    cursor: pointer;
+                                    transition: ease-in 0.15s;
+                                    border-bottom: 1px solid var(--primary-color);
+                                    transform: scale(102%);
+                                }
+                            }
                                     & .desktop-image{
                                         display: block;
                                     }
@@ -434,5 +452,5 @@ footer{
                 }
             }
        }
-    }
+    
 

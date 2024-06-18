@@ -8,6 +8,7 @@ const apiUrl = "https://dtnl-frontend-case.vercel.app/api/";
 const forecastUrl = apiUrl + "get-forecast";
 const currentWeatherUrl = apiUrl + "get-weather";
 const thingsToDoUrl = apiUrl + "get-things-to-do";
+const detaildata = apiUrl + "/get-things-to-do?id=(id)";
 
 
 // Maak een nieuwe express app aan
@@ -31,6 +32,8 @@ app.get('/', async function (request, response) {
     const currentWeatherData = await fetchJson(currentWeatherUrl);
     const thingsToDoData = await fetchJson(thingsToDoUrl);
 
+    
+
     // eerst controleer ik of er een array is in de data
     if (Array.isArray(forecastData.forecast)) {
       // Maak alle dagen van de week, zodat het model deze kan koppelen
@@ -48,7 +51,7 @@ app.get('/', async function (request, response) {
         allcast: forecastData.forecast || [],
       weather: currentWeatherData.temperature || [],
       weatherinfo: currentWeatherData.weatherInfo || {},
-      thingsToDo: thingsToDoData.activities || []
+      thingsToDo: thingsToDoData.activities || [],
       });
     } else {
       console.error("error");
@@ -59,6 +62,30 @@ app.get('/', async function (request, response) {
     response.status(500).send('An error occurred while fetching data');
   }
 });
+
+// app.get('/?id=()', async function (request, response) {
+//   try {
+//     const id = request.query.id;
+//     if (!id) {
+//       return response.status(400).send('ID query parameter is required');
+//     }
+
+//     const detailUrl = `https://dtnl-frontend-case.vercel.app/api/get-things-to-do/?id=${id}`;
+//     const detail = await fetchJson(detailUrl);
+
+//     const currentWeatherData = await fetchJson(currentWeatherUrl);
+//     const fulldetaildata = await fetchJson(detaildata);
+
+//     // Render all data
+//     response.render('/?id=()', { 
+//       weather: currentWeatherData.temperature || [],
+//       details: fulldetaildata.activities || []
+//     });
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//     response.status(500).send('An error occurred while fetching data');
+//   }
+// });
 
 
 
