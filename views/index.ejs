@@ -141,6 +141,23 @@
                                     <h5> <%= event.title %>  </h5>
                                     <p> <%= event.shortDescription %> </p>
                                  </div>
+                                 <dialog closed class="pop-up">
+                                    <form method="dialog">
+                                       <button><i class='bx bx-x'></i></button>
+                                    </form>
+                                    <div class="pop-up-carousel">
+                                       <picture class="images">
+                                       <source srcset="<%= event.images %>?&format=webp" type="image/webp">
+                                       <img  src="<%= event.images %>" alt="" width="1198px" height="455px">
+                                       </picture>
+                                    </div>
+                                    <div class="pop-up-content">
+                                       <h2><%= event.title %> </h2>
+                                       <p class="pop-up-p1"> You can do this event</p>
+                                       <p class="pop-up-p2">You can do this activity between <%= event.minTemp %>° and  <%= event.maxTemp %>° in Amsterdam </p>
+                                       <p class="pop-up-p3"> <%= event.description %></p>
+                                    </div>
+                                 </dialog>
                               </article>
                            </li>
                            <% } %> 
@@ -166,6 +183,23 @@
                                     <h5> <%= event.title %>  </h5>
                                     <p> <%= event.shortDescription %> </p>
                                  </div>
+                                 <dialog closed class="pop-up">
+                                    <form method="dialog">
+                                       <button alt="close"><i class='bx bx-x'></i></button>
+                                    </form>
+                                    <div class="pop-up-carousel">
+                                       <picture class="images">
+                                       <source srcset="<%= event.images %>?&format=webp" type="image/webp">
+                                       <img  src="<%= event.images %>" alt="" width="1198px" height="455px">
+                                       </picture>
+                                    </div>
+                                    <div class="pop-up-content">
+                                       <h2><%= event.title %> </h2>
+                                       <p class="pop-up-p1"> You can do this event</p>
+                                       <p class="pop-up-p2">You can do this activity between <%= event.minTemp %>° and  <%= event.maxTemp %>° in Amsterdam </p>
+                                       <p class="pop-up-p3"> <%= event.description %></p>
+                                    </div>
+                                 </dialog>
                               </article>
                            </li>
                            <% } %>

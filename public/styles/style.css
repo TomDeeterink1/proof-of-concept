@@ -279,7 +279,57 @@ main{
 }
 
 .pop-up{
+    border: none;
     position: absolute;
+    width: 1198px ;
+    padding: 0px;
+    & form{
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        & button{
+            border: none;
+            font-size: 4em;
+            background-color: inherit;
+            color: var(--body-color);
+            &:hover{
+                cursor: pointer;
+                color: var(--primary-color);
+                transition: ease-in 0.2s;
+                transform: scale(105%);
+            }
+        }
+    }
+    & .pop-up-carousel{
+        background-color: var(--primary-color);
+        height: 455px;
+
+    }
+    & .pop-up-content{
+        padding: 30px 61px 73px 61px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0px;
+        & h2{
+            font-size: 3em;
+            font-weight: 700;
+        }
+        & p{
+            margin: 0px;
+            font-size: 1.2em;
+        }
+        & .pop-up-p1{
+            padding: 0.5em 1em ;
+            background-color: #F0EBFE;
+            font-weight: 500;
+
+        }
+        & .pop-up-p2{
+            font-weight: 600;
+
+        }
+    }
 }
 footer{
     height: 50vh;
